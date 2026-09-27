@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Predictions vs Reality — an interactive study of forecasting</title>
+  <meta name="description" content="How humanity's predictions of the future compare to what actually happened — and why. An interactive, sourced analysis across technology, markets, politics, sports, environment, demographics and society." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ===================== NAV ===================== -->
+  <header class="nav">
+    <a class="brand" href="#top">
+      <span class="brand-orb" aria-hidden="true"></span>
+      Predictions&nbsp;<span class="brand-vs">vs</span>&nbsp;Reality
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#eras">History</a>
+      <a href="#bias">Hope vs Doom</a>
+      <a href="#spectrum">Predictability</a>
+      <a href="#gallery">Hall of Fame</a>
+      <a href="#game">Play</a>
+      <a href="#horizon">The Future</a>
+    </nav>
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle light or dark theme" title="Toggle theme">
+      <span class="theme-icon-dark">☾</span><span class="theme-icon-light">☀</span>
+    </button>
+  </header>
+
+  <main id="top">
+    <!-- ===================== HERO ===================== -->
+    <section class="hero">
+      <p class="eyebrow">An interactive study of forecasting</p>
+      <h1>We are terrible at predicting the future.<br /><span class="hero-accent">The pattern in <em>how</em> we're wrong is the interesting part.</span></h1>
+      <p class="hero-sub">
+        For a century we've forecast flying cars, market plateaus, mass starvation and the
+        end of history. Some calls were eerily right; most missed — but they missed in
+        <strong>systematic, learnable ways</strong>. Scroll to explore how prediction has
+        evolved, which futures are knowable, and where humanity keeps fooling itself.
+      </p>
+      <div class="hero-stats" id="heroStats"><!-- populated by app.js --></div>
+      <a class="scroll-cue" href="#eras" aria-label="Start exploring">↓ Start exploring</a>
+    </section>
+
+    <!-- ===================== 2 · TIMELINE ===================== -->
+    <section id="eras" class="band">
+      <div class="section-head">
+        <span class="section-kicker">Question 1 &amp; 3</span>
+        <h2>The Evolving Crystal Ball</h2>
+        <p class="section-lede">How we forecast has changed more than what we forecast. We went
+          from reading entrails to scoring probabilities — and technology keeps sharpening the
+          tools. Walk the eras:</p>
+      </div>
+      <div class="era-layout">
+        <ol class="era-rail" id="eraRail" role="tablist" aria-label="Forecasting eras"></ol>
+        <div class="era-detail" id="eraDetail" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ===================== 3 · HOPE VS DOOM ===================== -->
+    <section id="bias" class="band alt">
+      <div class="section-head">
+        <span class="section-kicker">Question 2</span>
+        <h2>Are We Too Hopeful — or Too Doomed?</h2>
+        <p class="section-lede">Both, depending on the subject. We cheer on technology and markets
+          (optimism bias) and catastrophize about people and the planet (doom bias). Here's the
+          average lean of the predictions in this collection, by sector:</p>
+      </div>
+      <div class="bias-chart" id="biasChart" role="img" aria-label="Diverging bar chart of optimism versus pessimism lean by sector"></div>
+      <p class="chart-note">Each bar is the average tone of that sector's predictions, from deeply pessimistic (left) to euphorically optimistic (right). Hover a bar for the reading.</p>
+    </section>
+
+    <!-- ===================== 4 · PREDICTABILITY SPECTRUM ===================== -->
+    <section id="spectrum" class="band">
+      <div class="section-head">
+        <span class="section-kicker">Question 4</span>
+        <h2>The Predictability Spectrum</h2>
+        <p class="section-lede">Not all futures are equally knowable. Some live in
+          <em>Mediocristan</em> — regular, forecastable. Others live in Taleb's
+          <em>Extremistan</em>, ruled by rare “black swan” shocks no model sees coming. Hover any
+          domain:</p>
+      </div>
+      <div class="spectrum" id="spectrumTrack"></div>
+      <div class="spectrum-axis">
+        <span>Knowable · clockwork</span>
+        <span>Extremistan · black swans</span>
+      </div>
+      <p class="spectrum-explainer" id="spectrumExplainer">Hover a domain above to see why it sits where it does.</p>
+    </section>
+
+    <!-- ===================== 5 · HALL OF FAME & SHAME ===================== -->
+    <section id="gallery" class="band alt">
+      <div class="section-head">
+        <span class="section-kicker">Question 5</span>
+        <h2>The Hall of Fame &amp; Shame</h2>
+        <p class="section-lede">The most famous predictions ever made — the spectacular misses and
+          the improbable hits. Filter by sector, outcome, or the <em>reason</em> each one missed.</p>
+      </div>
+      <div class="filters" id="filters" aria-label="Filter predictions"></div>
+      <p class="result-count" id="resultCount" aria-live="polite"></p>
+      <div class="cards" id="cards"></div>
+    </section>
+
+    <!-- ===================== 6 · PREDICT-FIRST GAME ===================== -->
+    <section id="game" class="band">
+      <div class="section-head">
+        <span class="section-kicker">Question 5, but for you</span>
+        <h2>Think You'd Have Called It?</h2>
+        <p class="section-lede">Easy to judge in hindsight. Before each reveal, commit to a guess —
+          then see reality. Your calibration score is the whole point: good forecasters aren't
+          always right, they're <em>honest about their uncertainty</em>.</p>
+      </div>
+      <div class="game" id="gameBoard"></div>
+    </section>
+
+    <!-- ===================== 7 · FORECAST HORIZON ===================== -->
+    <section id="horizon" class="band alt">
+      <div class="section-head">
+        <span class="section-kicker">Question 6</span>
+        <h2>The Forecast Horizon</h2>
+        <p class="section-lede">So what do we predict now? Today's best forecasts for 2050 and
+          2100 — each shown with its <strong>confidence</strong>, because a forecast without one is
+          just a wish. Remember Amara's Law: we overrate the short run and underrate the long.</p>
+      </div>
+      <div class="horizon-grid" id="horizonGrid"></div>
+    </section>
+
+    <!-- ===================== 8 · SOURCES ===================== -->
+    <section id="sources" class="band">
+      <div class="section-head">
+        <span class="section-kicker">Show your work</span>
+        <h2>Sources &amp; Further Reading</h2>
+        <p class="section-lede">Every claim above links to a reference. The full list, plus the
+          research that frames it, lives here and in <code>RESEARCH.md</code>.</p>
+      </div>
+      <ul class="source-list" id="sourceList"></ul>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Built as an exploration of forecasting itself — the science of being wrong in interesting ways.</p>
+    <p class="foot-dim">Data is a curated seed set; add to <code>data/predictions.js</code> to grow it.</p>
+  </footer>
+
+  <!-- data first, then app -->
+  <script src="data/predictions.js"></script>
+  <script src="data/eras.js"></script>
+  <script src="data/forecasts2050.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
