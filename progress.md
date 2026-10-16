@@ -14,7 +14,7 @@ defects only.
 | Live site | Up at https://timothyhadfield.github.io/predictions-vs-reality/ |
 | All 8 sections | Work at 393px (WebKit) and 1440px, both themes, no console errors (2026-10-16) |
 | Tests | None (static page); verified with phone-view, see CLAUDE.md |
-| 2026-10-16 sweep | Fixed: dead Keynes source link (404), unreadable bias-chart numbers on short bars, `aria-selected` on era tabs. Handoff files added. |
+| 2026-10-16 sweep | Fixed: spectrum labels near-invisible on the dark theme, dead Keynes source link (404), unreadable bias-chart numbers on short bars, favicon 404 console error, `aria-selected` on era tabs. Handoff files added. Lighthouse (mobile, loaded laptop): perf 77, a11y 96, best practices 96 → 100. |
 
 ## Authorized next steps
 None.

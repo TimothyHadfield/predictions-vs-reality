@@ -49,6 +49,8 @@ GitHub Pages serves `main` from the repo root. Push to `main` and it is live in 
   question.
 - Bias chart: a bar too short for its number gets class `tiny`, which moves the number just past
   the bar's end (measured at render and again on width change). Don't remove the measuring.
+- `<button>`s don't inherit text colour: every button style needs its own `color:` (the spectrum
+  pills were near-black on the dark theme until 2026-10-16).
 - Text is inserted with `innerHTML` from the data files. Fine for this curated data; never feed it
   user input.
 
