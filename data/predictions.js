@@ -331,7 +331,7 @@ const PREDICTIONS = [
     reality: 'Productivity rose roughly as he expected, but we spent it on more consumption and higher expectations, not leisure. The hours barely budged.',
     optimism: 2,
     failureMode: 'base-rate-neglect',
-    source: { title: 'Economic Possibilities for our Grandchildren (Wikipedia)', url: 'https://en.wikipedia.org/wiki/Economic_Possibilities_for_our_Grandchildren' },
+    source: { title: 'John Maynard Keynes (Wikipedia)', url: 'https://en.wikipedia.org/wiki/John_Maynard_Keynes' },
   },
   {
     id: 'paperless-office',

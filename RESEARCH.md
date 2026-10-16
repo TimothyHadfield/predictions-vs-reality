@@ -118,7 +118,7 @@ Curated in `data/predictions.js` with full sourcing. Highlights and their **fail
 - **"Hundreds of millions will starve in the 1970s–80s"** (Ehrlich, *The Population Bomb*, 1968) —
   *ideological*. — [The Population Bomb](https://en.wikipedia.org/wiki/The_Population_Bomb)
 - **The Simon–Ehrlich wager** (1980): Ehrlich bet five metals would rise; all five fell. — [Simon–Ehrlich wager](https://en.wikipedia.org/wiki/Simon%E2%80%93Ehrlich_wager)
-- **Keynes's 15-hour work week by 2030** (1930): productivity rose, hours didn't. — [Economic Possibilities for our Grandchildren](https://en.wikipedia.org/wiki/Economic_Possibilities_for_our_Grandchildren)
+- **Keynes's 15-hour work week by 2030** (1930): productivity rose, hours didn't. — [Economic Possibilities for our Grandchildren](https://en.wikipedia.org/wiki/John_Maynard_Keynes)
 - **The improbable hit:** Leicester City at **5000-to-1** won the 2015–16 Premier League — a live
   demonstration that "extremely unlikely" is not "impossible." — [2015–16 Leicester City season](https://en.wikipedia.org/wiki/2015%E2%80%9316_Leicester_City_F.C._season)
 - **The forecast-plus-action success:** the [Montreal Protocol](https://en.wikipedia.org/wiki/Montreal_Protocol)

@@ -88,7 +88,10 @@ function renderEras() {
   selectEra(0);
 }
 function selectEra(i) {
-  $$('.era-node').forEach((n, idx) => n.classList.toggle('active', idx === i));
+  $$('.era-node').forEach((n, idx) => {
+    n.classList.toggle('active', idx === i);
+    n.setAttribute('aria-selected', String(idx === i));
+  });
   const e = ERAS[i];
   $('#eraDetail').innerHTML = `
     <div class="era-detail-period">${e.period}</div>
@@ -123,11 +126,20 @@ function renderBiasChart() {
     const sign = r.avg > 0 ? '+' : '';
     fill.title = `${SECTORS[r.key].label}: average tone ${sign}${r.avg.toFixed(1)} across ${r.n} predictions ` +
                  `(${r.avg > 0.3 ? 'leans optimistic' : r.avg < -0.3 ? 'leans doom' : 'roughly neutral'})`;
-    fill.append(el('span', 'bias-val', `${sign}${r.avg.toFixed(1)}`));
+    const val = el('span', 'bias-val', `${sign}${r.avg.toFixed(1)}`);
+    fill.append(val);
     track.append(fill);
     row.append(track);
     chart.append(row);
   });
+  // a bar too short for its number (e.g. 0.0 or +0.2 on a phone) shows the number just past
+  // the bar's end instead of spilling white text onto the pale track (measure all, then mark)
+  const tiny = $$('.bias-fill', chart).filter(fill => {
+    const fs = getComputedStyle(fill);
+    const room = fill.clientWidth - parseFloat(fs.paddingLeft) - parseFloat(fs.paddingRight);
+    return $('.bias-val', fill).scrollWidth > room;
+  });
+  tiny.forEach(fill => fill.classList.add('tiny'));
 }
 
 /* =====================================================================
@@ -425,4 +437,9 @@ document.addEventListener('DOMContentLoaded', () => {
   startGame();
   renderHorizon();
   renderSources();
+  // re-check which bias-bar numbers fit when the width changes (phone rotation)
+  let lastW = window.innerWidth;
+  window.addEventListener('resize', () => {
+    if (window.innerWidth !== lastW) { lastW = window.innerWidth; renderBiasChart(); }
+  });
 });
