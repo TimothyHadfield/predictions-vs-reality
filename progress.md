@@ -11,6 +11,7 @@ defects only.
 ## Status
 | Area | State |
 |---|---|
+| Site icon | Added 2026-10-17: `icon.svg` (blue/white bullseye on #0d0d0d) as tab favicon + `apple-touch-icon.png` 180px for iPhone home screen |
 | Live site | Up at https://timothyhadfield.github.io/predictions-vs-reality/ |
 | All 8 sections | Work at 393px (WebKit) and 1440px, both themes, no console errors (2026-10-16) |
 | Tests | None (static page); verified with phone-view, see CLAUDE.md |
